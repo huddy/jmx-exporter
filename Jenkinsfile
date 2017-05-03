@@ -1,5 +1,5 @@
 node() {
-    docker.withRegistry('<<your-docker-registry>>', '<<your-docker-registry-credentials-id>>') {
+    docker.withRegistry('eu.gcr.io/sphonic-merchantportal', 'sphonic-merchantportal') {
     
         git url: "<<your-git-repo-url>>", credentialsId: '<<your-git-credentials-id>>'
     
