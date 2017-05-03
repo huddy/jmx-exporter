@@ -1,17 +1,9 @@
-node() {
-    docker.withRegistry('eu.gcr.io/sphonic-merchantportal', 'sphonic-merchantportal') {
-    
-        git url: "<<your-git-repo-url>>", credentialsId: '<<your-git-credentials-id>>'
-    
-        sh "git rev-parse HEAD > .git/commit-id"
-        def commit_id = readFile('.git/commit-id').trim()
-        println commit_id
-    
+node() { 
+        git url: "https://github.com/huddy/jmx-exporter"
+ 
         stage "build"
-        def app = docker.build "your-project-name"
+        echo 'build'
     
         stage "publish"
-        app.push 'master'
-        app.push "${commit_id}"
-    }
+        echo 'publish'
 }
