@@ -3,7 +3,13 @@ node() {
  
         stage "build"
         sh 'docker build .'
+        
+        stage "get commit od"
+        sh "git rev-parse --short HEAD > .git/commit-id"                        
+        commit_id = readFile('.git/commit-id')
     
-        stage "publish"
-        echo 'publish'
+        stage "print commit id"
+        echo $commit_id
 }
+
+
