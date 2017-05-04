@@ -17,7 +17,7 @@ node() {
         }
   
         stage "Tag"
-        sh "docker tag jmx-exporter ${tag}         
+        sh "docker tag jmx-exporter ${tag}" 
         
         stage "Push"
         sh "gcloud --project=sphonic-merchantportal docker -- push $tag"
