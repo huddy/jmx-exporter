@@ -7,7 +7,8 @@ node() {
         echo "${commit_id}"
         
         stage "build"
-        sh 'docker build .'
+        sh "docker build -t jmx-exporter:${commit_id} ."
+        sh "docker images -a | grep jmx
         echo "${commit_id}"        
  
 }
