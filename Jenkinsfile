@@ -9,7 +9,7 @@ node() {
         sh "git rev-parse --short HEAD > .git/commit-id"                        
         commit_id = readFile('.git/commit-id')
     
-        tag = "${registry}/${project}/${name}:${commit_id}
+        tag = "${registry}/${project}/${name}:${commit_id}"
         
         stage "Build & Tag"
         script { 
