@@ -4,12 +4,12 @@ node() {
         stage "build"
         sh 'docker build .'
         
-        stage "get commit od"
+        stage "get commit id"
         sh "git rev-parse --short HEAD > .git/commit-id"                        
         commit_id = readFile('.git/commit-id')
     
         stage "print commit id"
-        echo $commit_id
+        echo env.commit_id
 }
 
 
