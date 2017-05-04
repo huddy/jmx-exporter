@@ -10,7 +10,9 @@ node() {
         script { 
           image = docker.build("jmx-exporter")
         }
-        sh "docker images -a"
+
+        sh "docker tag jmx-exporter jmx-exporter:${commit_id}"
+        
         
 }
 
