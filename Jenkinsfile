@@ -10,9 +10,12 @@ node() {
         script { 
           image = docker.build("jmx-exporter")
         }
-
-        sh "docker tag jmx-exporter jmx-exporter:${commit_id}"
         
+        stage "tag"
+        sh "docker tag jmx-exporter gcr.io/sphonic-merchantportal/jmx-exporter:${commit_id}"
+        
+        stage "push to docker registry"
+        sh "gcloud --project=sphonic-merchantportal docker -- push gcr.io/sphonic-merchantportal/jmx-exporter:${commit_id}"
         
 }
 
