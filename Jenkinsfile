@@ -11,11 +11,14 @@ node() {
     
         tag = "${registry}/${project}/${name}:${commit_id}"
         
-        stage "Build & Tag"
+        stage "Build"
         script { 
-          image = docker.build("${tag}")
+          image = docker.build("jmx-exporter")
         }
-         
+  
+        stage "Tag"
+        sh "docker tag jmx-exporter ${tag}         
+        
         stage "Push"
         sh "gcloud --project=sphonic-merchantportal docker -- push $tag"
 }
