@@ -1,5 +1,5 @@
 node() { 
-        git url: "https://github.com/huddy/jmx-exporter"
+        git url: "ssh://git@phabricator.sphoniclabs.net/diffusion/62/jmx-exporter-docker.git"
   
         def commit_id
         def registry = "gcr.io"
